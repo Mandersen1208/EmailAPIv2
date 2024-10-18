@@ -1,14 +1,14 @@
 package com.example.emailapi.DTO;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class EmailDTO {
 
     private List<String> recipient;
@@ -16,4 +16,5 @@ public class EmailDTO {
     private String sender;
     private String emailBody;
     private String attachment;
+
 }
