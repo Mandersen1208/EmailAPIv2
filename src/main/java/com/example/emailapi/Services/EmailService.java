@@ -23,20 +23,30 @@ public class EmailService implements EmailServiceIntf {
 
     @Override
     public String sendEmail(EmailDTO emailDTO) {
-        String[] to = ConverterUtils.convertStringListToStringArray(emailDTO.getRecipient());
-        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        try {
+            String[] to = ConverterUtils.convertStringListToStringArray(emailDTO.getRecipients());
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
 
-        mailMessage.setFrom(sender);
-        mailMessage.setTo(to);
-        mailMessage.setText(emailDTO.getEmailBody());
-        mailMessage.setSubject("email from api:"+" "+emailDTO.getSubject());
+            mailMessage.setFrom(sender);
+            mailMessage.setTo(to);
+            mailMessage.setText(emailDTO.getEmailBody());
+            mailMessage.setSubject("email from api:"+" "+emailDTO.getSubject());
 
-        javaMailSender.send(mailMessage);
-        return "Email sent successfully!";
+            javaMailSender.send(mailMessage);
+            return "Email sent successfully!";
+        }catch (Exception mailSendingExceptionm){
+            return "error while sending mail";
+        }
     }
 
     @Override
     public String sendEmailWithAttachments(EmailDTO emailDTO) {
+        try{
+
+        }catch (Exception mailSendingException){
+            return "error while Sending Mail";
+        }
+
         return "this email was completed";
     }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Setter
 public class EmailDTO {
 
-    private List<String> recipient;
+    private List<String> recipients;
     private String subject;
     private String sender;
     private String emailBody;
